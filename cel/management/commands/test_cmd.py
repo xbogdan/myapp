@@ -7,4 +7,5 @@ from cel.tasks import AddTask
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        chain(AddTask().si(1, 2))()
+        c = chain(AddTask().si(1, 2), AddTask().si(1, 2))()
+        print(c.get())
